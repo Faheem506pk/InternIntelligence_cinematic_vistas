@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Search, Menu, X } from "lucide-react";
@@ -46,7 +47,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-background/80 backdrop-blur-xl border-b shadow-sm"
-          : "bg-transparent  "
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -56,37 +57,25 @@ const Navbar = () => {
             className="text-xl font-display font-semibold tracking-tight flex items-center"
           >
             <span className="pr-1">CINEMATIC</span>
-            <span
-              className={`transition-colors ${
-                isScrolled ? "text-muted-foreground" : "text-white"
-              }`}
-            >
-              VISTAS
-            </span>
+            <span className="text-muted-foreground">VISTAS</span>
           </Link>
 
           {/* Desktop Navigation */}
-         {/* Desktop Navigation */}
-<nav className="hidden md:flex items-center space-x-8">
-  {navLinks.map((link) => (
-    <Link
-      key={link.path}
-      to={link.path}
-      className={`text-sm font-medium transition-colors relative py-1 story-link ${
-        location.pathname === link.path
-          ? isScrolled
-            ? "text-foreground font-semibold" // Active when scrolled
-            : "text-white font-semibold" // Active at the top
-          : isScrolled
-          ? "text-muted-foreground hover:text-foreground" // Non-active when scrolled
-          : "text-white/60 hover:text-foreground" // Non-active at the top
-      }`}
-    >
-      {link.title}
-    </Link>
-  ))}
-</nav>
-
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-sm font-medium transition-colors relative py-1 story-link ${
+                  location.pathname === link.path
+                    ? "text-foreground font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {link.title}
+              </Link>
+            ))}
+          </nav>
 
           {/* Desktop Search and Actions */}
           <div className="hidden md:flex items-center space-x-2">
