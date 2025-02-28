@@ -114,7 +114,7 @@ const MovieDetails = () => {
           </div>
 
           {/* Back Button */}
-          <div className="absolute top-20 md:top-24 left-4 z-10">
+          <div className="absolute top-14 md:top-20 left-0 z-10">
             <Link to="/movies">
               <Button variant="ghost" size="sm" className="text-white hover:bg-black/20 hover:text-white">
                 <ArrowLeft className="mr-1 h-4 w-4" /> Back
