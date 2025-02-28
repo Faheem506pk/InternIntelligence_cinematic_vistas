@@ -92,7 +92,7 @@ const FeaturedMovies = ({ title, subtitle, movies, loading = false, error = fals
   };
 
   return (
-    <section className={cn('py-8 md:py-12', className)}>
+    <section className={cn('py-8 md:py-5', className)}>
       <div className="container px-4 mx-auto">
         <div className="flex justify-between items-end mb-6 md:mb-8">
           <div>
