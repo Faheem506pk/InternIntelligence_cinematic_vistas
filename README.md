@@ -37,7 +37,7 @@ git clone https://github.com/Faheem506pk/InternIntelligence_cinematic_vistas cd 
 npm install
 
 
-3. Create a `.env` file in the root directory and add your TMDB API key:
+3. Create a `.env.local` file in the root directory and add your TMDB API key:
 VITE_TMDB_API_KEY=your_api_key_here
 
 
