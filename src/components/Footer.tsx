@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Instagram, Linkedin, Youtube } from "lucide-react";
 
 const currentYear = new Date().getFullYear();
 
@@ -16,17 +16,18 @@ const Footer = () => {
             </Link>
             <ul className="flex space-x-4">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <a href="https://www.instagram.com/faheem506pk_" className="text-muted-foreground hover:text-foreground transition-colors">
                   <Instagram className="w-5 h-5" />
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  <Twitter className="w-5 h-5" />
+                <a href="https://www.linkedin.com/in/faheem506pk/" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                  
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <a href="https://www.youtube.com/@faheem506pk" className="text-muted-foreground hover:text-foreground transition-colors">
                   <Youtube className="w-5 h-5" />
                 </a>
               </li>
