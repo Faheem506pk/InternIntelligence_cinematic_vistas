@@ -20,7 +20,7 @@ const Hero = ({ movie }: HeroProps) => {
   }, [movie.backdrop_path]);
 
   return (
-    <div className="relative h-[70vh] md:h-[85vh] w-full overflow-hidden">
+    <div className="relative h-[calc(70vh+69px)] md:h-[85vh] w-full overflow-hidden">
       {/* Background Image with Overlay Gradient */}
       <div 
         className={`absolute inset-0 bg-muted/50 transition-opacity duration-700 ${
