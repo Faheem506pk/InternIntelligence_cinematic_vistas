@@ -1,69 +1,73 @@
-# Welcome to your Lovable project
+# Cinematic Vistas - Movie Discovery App
 
-## Project info
+A modern web application for discovering movies using The Movie Database (TMDB) API.
 
-**URL**: https://lovable.dev/projects/59553fe3-4233-4964-849d-21c266b75ab9
+## Features
 
-## How can I edit this code?
+- Browse trending, now playing, upcoming, and top-rated movies
+- Search for movies by title
+- Filter movies by genre
+- View detailed information about each movie
+- Responsive design for all devices
 
-There are several ways of editing your application.
+## Technologies Used
 
-**Use Lovable**
+- React with TypeScript
+- Vite for fast development and building
+- Tailwind CSS for styling
+- shadcn/ui for UI components
+- React Query for data fetching and caching
+- React Router for navigation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/59553fe3-4233-4964-849d-21c266b75ab9) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js (v14.0 or higher)
+- NPM or Yarn
+- TMDB API key (get one at https://www.themoviedb.org/settings/api)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Clone the repository:
+git clone https://github.com/Faheem506pk/InternIntelligence_cinematic_vistas cd cinematic-vistas
 
-Follow these steps:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. Install dependencies:
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. Create a `.env` file in the root directory and add your TMDB API key:
+VITE_TMDB_API_KEY=your_api_key_here
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+
+4. Update the API key in `src/services/api.ts`:
+```typescript
+const API_KEY = "your_api_key_here";
+Start the development server:
+
 npm run dev
-```
+Open http://localhost:8080 to view the app in your browser.
 
-**Edit a file directly in GitHub**
+Project Structure
+/src: Source code
+/components: Reusable UI components
+/hooks: Custom React hooks
+/pages: Page components
+/services: API services
+/lib: Utility functions
+Deployment
+Build the project for production:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+npm run build
+The built files will be in the dist directory, which you can deploy to your preferred hosting service.
 
-**Use GitHub Codespaces**
+License
+MIT
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Acknowledgments
+The Movie Database (TMDB) for providing the API
+shadcn/ui for the beautiful UI components
+Tailwind CSS for the styling framework
 
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/59553fe3-4233-4964-849d-21c266b75ab9) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+You can use this README file for your GitHub repository. It provides a comprehensive overview of your project, including features, technologies used, installation instructions, and project structure.
