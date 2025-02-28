@@ -30,7 +30,9 @@ A modern web application for discovering movies using The Movie Database (TMDB) 
 ### Installation
 
 1. Clone the repository:
-git clone https://github.com/Faheem506pk/InternIntelligence_cinematic_vistas cd cinematic-vistas
+git clone https://github.com/Faheem506pk/InternIntelligence_cinematic_vistas 
+
+cd cinematic-vistas
 
 
 2. Install dependencies:
