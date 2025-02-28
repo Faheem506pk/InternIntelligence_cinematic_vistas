@@ -150,4 +150,21 @@
   .snap-x-mandatory {
     @apply snap-x snap-mandatory;
   }
+
+  /* Hide scrollbar for Webkit (Chrome, Safari) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE/Edge */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+}
+
+
 }

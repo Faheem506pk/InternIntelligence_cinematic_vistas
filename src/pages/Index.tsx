@@ -112,7 +112,7 @@ const Index = () => {
           </div>
         )}
 
-        <div className="space-y-6 md:space-y-10 pb-16 pt-5">
+        <div className="space-y-1 md:space-y-1 pb-16 pt-5">
           <FeaturedMovies
             title="Trending This Week"
             subtitle="The most popular movies right now"
