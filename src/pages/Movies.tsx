@@ -74,7 +74,7 @@ const Movies = () => {
       <Navbar />
       
       <main className="flex-1 pt-20 md:pt-24">
-        <div className="container mx-auto px-4 py-8 md:py-12">
+        <div className=" px-6 md:px-12 py-8 md:py-12">
           <div className="max-w-4xl mx-auto mb-10">
             <h1 className="text-3xl md:text-4xl font-bold mb-6">{getPageTitle()}</h1>
             

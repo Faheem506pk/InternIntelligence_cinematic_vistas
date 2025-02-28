@@ -124,7 +124,7 @@ const MovieDetails = () => {
         </div>
 
         {/* Movie Content */}
-        <div className="container mx-auto px-4 relative -mt-40 md:-mt-60 z-10">
+        <div className="px-6 md:px-12 relative -mt-40 md:-mt-60 z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {/* Poster */}
             <div className="hidden md:block">

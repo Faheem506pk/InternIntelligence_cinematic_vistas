@@ -112,7 +112,7 @@ const Index = () => {
           </div>
         )}
 
-        <div className="space-y-1 md:space-y-1 pb-16 pt-5">
+        <div className="space-y-1 md:space-y-1">
           <FeaturedMovies
             title="Trending This Week"
             subtitle="The most popular movies right now"
@@ -127,7 +127,7 @@ const Index = () => {
             movies={nowPlayingMovies?.results || []}
             loading={nowPlayingLoading}
             error={nowPlayingError}
-            className="bg-muted/30 "
+            className="bg-muted/30 py-12 md:py-16"
           />
 
           <FeaturedMovies
@@ -144,7 +144,7 @@ const Index = () => {
             movies={upcomingMovies?.results || []}
             loading={upcomingLoading}
             error={upcomingError}
-            className="bg-muted/30 "
+            className="bg-muted/30 py-12 md:py-16"
           />
         </div>
       </main>

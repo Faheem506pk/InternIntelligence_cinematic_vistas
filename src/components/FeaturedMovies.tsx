@@ -92,8 +92,8 @@ const FeaturedMovies = ({ title, subtitle, movies, loading = false, error = fals
   };
 
   return (
-    <section className={cn('py-8 md:py-5', className)}>
-      <div className="container px-4 mx-auto">
+    <section className={cn('py-8 md:py-12', className)}>
+      <div className="px-6 md:px-12 ">
         <div className="flex justify-between items-end mb-6 md:mb-8">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">{title}</h2>

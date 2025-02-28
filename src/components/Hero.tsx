@@ -40,19 +40,19 @@ const Hero = ({ movie }: HeroProps) => {
       
       {/* Content */}
       <div className="absolute inset-0 flex items-end md:items-center justify-start">
-        <div className="container mx-auto px-4 pb-16 md:pb-0 animate-fade-in">
+        <div className=" px-6 md:px-12 pb-16 md:pb-0 animate-fade-in">
           <div className="max-w-2xl space-y-4">
             <div className="inline-block bg-primary/80 backdrop-blur-sm px-3 py-1 rounded text-xs text-white font-medium uppercase tracking-wider animate-fade-in" style={{ animationDelay: "0.3s" }}>
               Featured Film
             </div>
             <h1 
-              className="text-3xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-sm animate-fade-in" 
+              className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#1a1a1a] drop-shadow-sm animate-fade-in" 
               style={{ animationDelay: "0.4s" }}
             >
               {movie.title}
             </h1>
             <p 
-              className="text-white/80 text-sm md:text-base max-w-xl animate-fade-in" 
+              className="text-[#1a1a1a] text-sm md:text-base max-w-xl animate-fade-in" 
               style={{ animationDelay: "0.5s" }}
             >
               {movie.overview.length > 200 
@@ -72,7 +72,7 @@ const Hero = ({ movie }: HeroProps) => {
               </Button>
               <Button 
                 variant="outline" 
-                className="bg-black/30 backdrop-blur-sm border-white/30 text-white hover:bg-black/40 hover:text-white"
+                className="bg-black/80 backdrop-blur-sm border-white/30 text-white hover:bg-black hover:text-white"
                 size="lg"
               >
                 <Play className="mr-2 h-4 w-4 fill-current" /> Watch Trailer
