@@ -2,7 +2,7 @@
 import { toast } from "@/hooks/use-toast";
 
 // Replace this with your valid TMDB API key
-const API_KEY = "YOUR_NEW_API_KEY_HERE"; // TMDB API key - Get from https://www.themoviedb.org/settings/api
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;// TMDB API key - Get from https://www.themoviedb.org/settings/api
 const BASE_URL = "https://api.themoviedb.org/3";
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 
