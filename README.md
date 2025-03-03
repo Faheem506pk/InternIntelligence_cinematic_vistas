@@ -1,4 +1,5 @@
 # Cinematic Vistas - Movie Discovery App
+![Banner](public/Banner.png)
 
 A modern web application for discovering movies using The Movie Database (TMDB) API.
 
