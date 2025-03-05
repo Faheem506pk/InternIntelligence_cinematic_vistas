@@ -1,6 +1,5 @@
-
-import { useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, AlertTriangle } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import MovieCard from './MovieCard';
 import { Movie } from '@/services/api';
@@ -15,10 +14,20 @@ interface FeaturedMoviesProps {
   className?: string;
 }
 
-const FeaturedMovies = ({ title, subtitle, movies, loading = false, error = false, className }: FeaturedMoviesProps) => {
+const FeaturedMovies = ({ 
+  title, 
+  subtitle, 
+  movies, 
+  loading = false, 
+  error = false, 
+  className 
+}: FeaturedMoviesProps) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
-  const [showRightArrow, setShowRightArrow] = useState(true);
+  const [isHovering, setIsHovering] = useState(false);
+  const [scrollState, setScrollState] = useState({
+    canScrollLeft: false,
+    canScrollRight: false
+  });
 
   const scroll = (direction: 'left' | 'right') => {
     const container = scrollContainerRef.current;
@@ -35,104 +44,92 @@ const FeaturedMovies = ({ title, subtitle, movies, loading = false, error = fals
     });
   };
 
-  const handleScroll = () => {
+  // Update scroll state
+  const updateScrollState = () => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    setShowLeftArrow(container.scrollLeft > 0);
-    setShowRightArrow(
-      container.scrollLeft < container.scrollWidth - container.clientWidth - 10
-    );
+    setScrollState({
+      canScrollLeft: container.scrollLeft > 0,
+      canScrollRight: container.scrollLeft < container.scrollWidth - container.clientWidth - 10
+    });
   };
 
-  const renderContent = () => {
-    if (loading) {
-      return (
-        <div className="flex overflow-x-auto pb-4 gap-4 snap-x-mandatory hide-scrollbar">
-          {Array.from({ length: 6 }).map((_, index) => (
-            <div 
-              key={index} 
-              className="w-[180px] md:w-[220px] flex-shrink-0 snap-start aspect-[2/3] rounded-lg bg-muted/50 shimmer"
-            />
-          ))}
-        </div>
-      );
-    }
+  // Add scroll event listener
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
-    if (error) {
-      return (
-        <div className="flex items-center justify-center py-12 text-center text-muted-foreground">
-          <AlertTriangle className="h-5 w-5 mr-2 text-amber-500" />
-          <span>Unable to load movies at this time.</span>
-        </div>
-      );
-    }
+    container.addEventListener('scroll', updateScrollState);
+    updateScrollState(); // Initial check
 
-    if (movies.length === 0) {
-      return (
-        <div className="flex items-center justify-center py-12 text-center text-muted-foreground">
-          No movies available.
-        </div>
-      );
-    }
-
-    return (
-      <div
-        ref={scrollContainerRef}
-        className="flex overflow-x-auto pb-4 gap-4 snap-x-mandatory hide-scrollbar"
-        onScroll={handleScroll}
-      >
-        {movies.map((movie) => (
-          <div key={movie.id} className="w-[180px] md:w-[220px] flex-shrink-0 snap-start">
-            <MovieCard movie={movie} />
-          </div>
-        ))}
-      </div>
-    );
-  };
+    return () => {
+      container.removeEventListener('scroll', updateScrollState);
+    };
+  }, [movies]);
 
   return (
-    <section className={cn('py-8 md:py-12', className)}>
-      <div className="px-6 md:px-12 ">
-        <div className="flex justify-between items-end mb-6 md:mb-8">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">{title}</h2>
-            {subtitle && (
-              <p className="text-muted-foreground mt-1">{subtitle}</p>
-            )}
-          </div>
-          {!loading && !error && movies.length > 0 && (
-            <div className="hidden md:flex items-center gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                className={cn(
-                  'rounded-full transition-opacity',
-                  !showLeftArrow && 'opacity-50 cursor-not-allowed'
-                )}
-                onClick={() => scroll('left')}
-                disabled={!showLeftArrow}
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className={cn(
-                  'rounded-full transition-opacity',
-                  !showRightArrow && 'opacity-50 cursor-not-allowed'
-                )}
-                onClick={() => scroll('right')}
-                disabled={!showRightArrow}
-              >
-                <ChevronRight className="h-5 w-5" />
-              </Button>
-            </div>
+    <section 
+      className={cn('relative group py-8', className)}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <div className="relative">
+        <div className="pl-6 md:pl-12 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold">{title}</h2>
+          {subtitle && (
+            <p className="text-muted-foreground mt-1">{subtitle}</p>
           )}
         </div>
 
         <div className="relative">
-          {renderContent()}
+          {/* Left Navigation */}
+          {isHovering && scrollState.canScrollLeft && (
+            <div 
+              className="absolute left-0 top-4 bottom-0 w-[80px] h-[91%] z-20 flex items-center 
+                         bg-[radial-gradient(ellipse_at_left,_rgba(0,0,0,0.8),_rgba(0,0,0,0.2),_transparent)]"
+            >
+              <button 
+                onClick={() => scroll('left')}
+                className="ml-1  hover:scale-110 rounded-full p-2 
+                           transition-all duration-300 ease-in-out"
+              >
+                <ChevronLeft className="w-[50px] h-[50px] text-white" />
+              </button>
+            </div>
+          )}
+
+          {/* Movie List */}
+          <div 
+            ref={scrollContainerRef}
+            className="pl-6 md:pl-12 flex overflow-x-auto space-x-4 hide-scrollbar hover:overflow-y-hidden "
+          >
+            {movies.map((movie) => (
+             <div 
+             key={movie.id} 
+             className="flex-shrink-0 w-[180px] md:w-[220px] group transition-transform duration-300 hover:scale-110 rounded-[.5vw] py-4 "
+           >
+             <MovieCard movie={movie} />
+           </div>
+           
+            ))}
+          </div>
+
+          {/* Right Navigation */}
+          {isHovering && scrollState.canScrollRight && (
+            <div 
+              className="absolute right-0 top-4 bottom-0 w-[80px] h-[91%] z-20 flex items-center justify-end 
+                         bg-[radial-gradient(ellipse_at_right,_rgba(0,0,0,0.8),_rgba(0,0,0,0.2),_transparent)]"
+            >
+              <button 
+                onClick={() => scroll('right')}
+                className="mr-1 hover:scale-110 rounded-full p-2 
+                           transition-all duration-300 ease-in-out"
+              >
+                <ChevronRight className="w-[50px] h-[50px] text-white" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>
