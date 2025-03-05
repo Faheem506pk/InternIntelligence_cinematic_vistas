@@ -86,12 +86,12 @@ const FeaturedMovies = ({
           {/* Left Navigation */}
           {isHovering && scrollState.canScrollLeft && (
             <div 
-              className="absolute left-0 top-4 bottom-0 w-[80px] h-[91%] z-20 flex items-center 
+              className="absolute left-0 top-4 bottom-0 w-[50px] h-[91%] z-20 flex items-center 
                          bg-[radial-gradient(ellipse_at_left,_rgba(0,0,0,0.8),_rgba(0,0,0,0.2),_transparent)]"
             >
               <button 
                 onClick={() => scroll('left')}
-                className="ml-1  hover:scale-110 rounded-full p-2 
+                className="ml-[-10px]  hover:scale-110 rounded-full p-2 
                            transition-all duration-300 ease-in-out"
               >
                 <ChevronLeft className="w-[50px] h-[50px] text-white" />
@@ -118,12 +118,12 @@ const FeaturedMovies = ({
           {/* Right Navigation */}
           {isHovering && scrollState.canScrollRight && (
             <div 
-              className="absolute right-0 top-4 bottom-0 w-[80px] h-[91%] z-20 flex items-center justify-end 
+              className="absolute right-0 top-4 bottom-0 w-[50px] h-[91%] z-20 flex items-center justify-end 
                          bg-[radial-gradient(ellipse_at_right,_rgba(0,0,0,0.8),_rgba(0,0,0,0.2),_transparent)]"
             >
               <button 
                 onClick={() => scroll('right')}
-                className="mr-1 hover:scale-110 rounded-full p-2 
+                className="mr-[-10px] hover:scale-110 rounded-full p-2 
                            transition-all duration-300 ease-in-out"
               >
                 <ChevronRight className="w-[50px] h-[50px] text-white" />
